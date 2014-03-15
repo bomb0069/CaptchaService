@@ -70,4 +70,15 @@ public class CaptchaTest {
 		assertEquals("4 + Three", captcha.toString());
 		assertEquals(7, captcha.getResult());
 	}
+
+	@Test
+	public void testCreateCaptchaWith1433ShouldBeReturn4MinusThree () {
+		Captcha captcha = new Captcha(1, 4, 3, 3);
+		assertEquals("4", captcha.getLeftOperand());
+		assertEquals("-", captcha.getOperator());
+		assertEquals("Three", captcha.getRightOperand());
+		assertEquals("4 - Three", captcha.toString());
+		assertEquals(1, captcha.getResult());
+	}
+
 }
