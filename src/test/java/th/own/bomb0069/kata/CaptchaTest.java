@@ -2,7 +2,9 @@ package th.own.bomb0069.kata;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
+import th.own.bomb0069.kata.operator.InvalidAgrumentToMinusException;
 
 public class CaptchaTest {
 	@Test
@@ -91,4 +93,19 @@ public class CaptchaTest {
 		assertEquals(2, captcha.getResult());
 	}
 
+	@Test
+	public void testCreateCaptchaWith2433ShouldBeReturnFourMinus3 () {
+		Captcha captcha = new Captcha(2, 4, 3, 3);
+		assertEquals("Four", captcha.getLeftOperand());
+		assertEquals("-", captcha.getOperator());
+		assertEquals("3", captcha.getRightOperand());
+		assertEquals("Four - 3", captcha.toString());
+		assertEquals(1, captcha.getResult());
+	}
+
+	@Test(expected=InvalidAgrumentToMinusException.class)
+	public void testCreateCaptchaWith2235ShouldBeInvalidAgrumentToMinusException () {
+		Captcha captcha = new Captcha(2, 2, 3, 5);
+		captcha.getResult();
+	}
 }

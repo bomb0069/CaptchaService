@@ -7,6 +7,8 @@ public class MinusOperator implements Operator{
 
 	@Override
 	public int operate (int leftOperand, int rightOperand) {
+		if (leftOperand < rightOperand)
+			throw new InvalidAgrumentToMinusException();
 		return leftOperand - rightOperand;
 	}
 }

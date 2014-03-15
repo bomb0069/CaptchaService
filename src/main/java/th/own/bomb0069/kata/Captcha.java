@@ -10,8 +10,10 @@ public class Captcha {
 	private int captchaMode;
 	private int leftOperand;
 	private int rightOperand;
-	private OperatorSelector operatorSelector;
 	private Operator operator;
+
+	private static final int MODE_NUMBER_WITH_TEXT = 1;
+	private static final int MODE_TEXT_WITH_NUMBER = 2;
 
 	private static Map<Integer, String> numberText;
     static
@@ -29,7 +31,7 @@ public class Captcha {
     }
 
 	public Captcha (int captchaMode, int leftOperand, int operator, int rightOperand) {
-		operatorSelector = new OperatorSelector();
+		OperatorSelector operatorSelector = new OperatorSelector();
 
 		this.captchaMode = captchaMode;
 		this.leftOperand = leftOperand;
@@ -38,15 +40,22 @@ public class Captcha {
 	}
 
 	public String getLeftOperand() {
-		if (captchaMode == 1)
-			return leftOperand + "";
-		return numberText.get(leftOperand);
+		String leftOperandText = "";
+		if (captchaMode == MODE_NUMBER_WITH_TEXT)
+			leftOperandText = leftOperand + "";
+		else 
+			leftOperandText = numberText.get(leftOperand);
+
+		return leftOperandText;
 	}
 
 	public String getRightOperand() {
-		if (captchaMode == 2)
-			return rightOperand + "";
-		return numberText.get(rightOperand);
+		String rightOperandText = "";
+		if (captchaMode == MODE_TEXT_WITH_NUMBER)
+			rightOperandText = rightOperand + "";
+		else
+			rightOperandText = numberText.get(rightOperand);
+		return rightOperandText;
 	}
 
 	public String getOperator() {
