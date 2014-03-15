@@ -2,16 +2,23 @@ package th.own.bomb0069.kata;
 
 public class Captcha {
 
-	public Captcha (int captchaMode, int leftOperand, int operator, int rightOperand) {
+	private int leftOperand;
+	private int rightOperand;
 
+	public Captcha (int captchaMode, int leftOperand, int operator, int rightOperand) {
+		this.leftOperand = leftOperand;
+		this.rightOperand = rightOperand;
 	}
 
 	public String getLeftOperand() {
-		return "1";
+		return leftOperand + "";
 	}
 
 	public String getRightOperand() {
-		return "One";
+		if (rightOperand == 5)
+			return "Five";
+		else 
+			return "One";
 	}
 
 	public String getOperator() {
@@ -19,11 +26,11 @@ public class Captcha {
 	}
 
 	public int getResult() {
-		return 2;
+		return leftOperand + rightOperand;
 	}
 
 	public String toString() {
-		return "1 + One";
+		return getLeftOperand() + " + " + getRightOperand();
 	}
 
 }
