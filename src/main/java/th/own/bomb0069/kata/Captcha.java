@@ -9,6 +9,7 @@ public class Captcha {
 
 	private int leftOperand;
 	private int rightOperand;
+	private OperatorSelector operatorSelector;
 	private Operator operator;
 
 	private static Map<Integer, String> numberText;
@@ -27,14 +28,11 @@ public class Captcha {
     }
 
 	public Captcha (int captchaMode, int leftOperand, int operator, int rightOperand) {
+		operatorSelector = new OperatorSelector();
+
 		this.leftOperand = leftOperand;
 		this.rightOperand = rightOperand;
-		if (operator == 2 )
-			this.operator = new MultiplyOperator();
-		else if (operator == 3 )
-			this.operator = new MinusOperator();
-		else 
-			this.operator = new PlusOperator();
+		this.operator = operatorSelector.getOperator(operator);
 	}
 
 	public String getLeftOperand() {

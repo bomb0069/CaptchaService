@@ -4,24 +4,30 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import org.junit.Before;
 
 public class MinusOperatorTest {
 
+	Operator minus = new MinusOperator();
+
+	@Before
+	public void setUp() {
+		minus = new MinusOperator();
+	}
+
+
 	@Test
 	public void testCreateNewMinusOperatorShouldBeInstanceOfOperatorInterace() {
-		Operator minus = new MinusOperator();
 		assertTrue(minus instanceof Operator);
 	}
 
 	@Test
 	public void testCreateNewMinusOperatorShouldBeReturnMinusOnToString() {
-		Operator minus = new MinusOperator();
 		assertEquals("-", minus.toString());
 	}
 
 	@Test
 	public void testOperate8And5ShouldBe3() {
-		Operator minus = new MinusOperator();
 		assertEquals(3, minus.operate(8, 5));
 	}
 
