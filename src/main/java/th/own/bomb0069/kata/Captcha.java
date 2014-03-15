@@ -3,6 +3,8 @@ package th.own.bomb0069.kata;
 import java.util.Map;
 import java.util.HashMap;
 
+import th.own.bomb0069.kata.operator.*;
+
 public class Captcha {
 
 	private int leftOperand;

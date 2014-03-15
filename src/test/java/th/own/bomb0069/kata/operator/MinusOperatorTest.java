@@ -1,4 +1,4 @@
-package th.own.bomb0069.kata;
+package th.own.bomb0069.kata.operator;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

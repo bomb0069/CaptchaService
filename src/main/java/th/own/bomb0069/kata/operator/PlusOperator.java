@@ -1,4 +1,4 @@
-package th.own.bomb0069.kata;
+package th.own.bomb0069.kata.operator;
 
 public class PlusOperator implements Operator{
 	public String toString() {
