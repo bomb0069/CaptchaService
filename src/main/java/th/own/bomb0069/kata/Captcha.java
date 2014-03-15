@@ -7,6 +7,7 @@ import th.own.bomb0069.kata.operator.*;
 
 public class Captcha {
 
+	private int captchaMode;
 	private int leftOperand;
 	private int rightOperand;
 	private OperatorSelector operatorSelector;
@@ -30,16 +31,21 @@ public class Captcha {
 	public Captcha (int captchaMode, int leftOperand, int operator, int rightOperand) {
 		operatorSelector = new OperatorSelector();
 
+		this.captchaMode = captchaMode;
 		this.leftOperand = leftOperand;
 		this.rightOperand = rightOperand;
 		this.operator = operatorSelector.getOperator(operator);
 	}
 
 	public String getLeftOperand() {
-		return leftOperand + "";
+		if (captchaMode == 1)
+			return leftOperand + "";
+		return numberText.get(leftOperand);
 	}
 
 	public String getRightOperand() {
+		if (captchaMode == 2)
+			return rightOperand + "";
 		return numberText.get(rightOperand);
 	}
 

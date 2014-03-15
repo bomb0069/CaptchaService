@@ -81,4 +81,14 @@ public class CaptchaTest {
 		assertEquals(1, captcha.getResult());
 	}
 
+	@Test
+	public void testCreateCaptchaWith2111ShouldBeReturnOnePlus1 () {
+		Captcha captcha = new Captcha(2, 1, 1, 1);
+		assertEquals("One", captcha.getLeftOperand());
+		assertEquals("+", captcha.getOperator());
+		assertEquals("1", captcha.getRightOperand());
+		assertEquals("One + 1", captcha.toString());
+		assertEquals(2, captcha.getResult());
+	}
+
 }
